@@ -37,6 +37,19 @@
 </head>
 
 <body>
+    @if (Auth::check())
+        @if (Auth::user()->role == 'admin')
+            <!-- Redirect to the admin dashboard -->
+            @php
+                return redirect()->route('dashboard');
+            @endphp
+        @elseif (Auth::user()->role == 'user')
+            <!-- Redirect to the home page -->
+            @php
+                return redirect()->route('welcome');
+            @endphp
+        @endif
+    @endif
 
     <!-- Preloader-->
     <div class="loading-preloader">
@@ -781,19 +794,7 @@
 
 
     {{ $slot }}
-    @if (Auth::check())
-    @if (Auth::user()->role == 'admin')
-        <!-- Redirect to the admin dashboard -->
-        @php
-            return redirect()->route('dashboard');
-        @endphp
-    @elseif (Auth::user()->role == 'user')
-        <!-- Redirect to the home page -->
-        @php
-            return redirect()->route('/');
-        @endphp
-    @endif
-@endif
+
 
 
     <!--**********************************

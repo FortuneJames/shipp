@@ -28,109 +28,7 @@
     <!-- REVOLUTION LAYERS STYLES -->
     <link href="/assets/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css">
     <!-- REVOLUTION NAVIGATION STYLES -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        /* Basic styling for the home page content */
-        #home-page-content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Modal styling */
-        .modal {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Dark overlay */
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            position: relative;
-            max-width: 90%;
-            /* Limit max-width for larger screens */
-            width: 100%;
-            margin: 0 1rem;
-            /* Add margin to avoid touching screen edges */
-        }
-
-        .captcha {
-            font-size: 1.5rem;
-            letter-spacing: 0.2rem;
-            font-weight: bold;
-            background-color: #e0e0e0;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-        }
-
-        .captcha-refresh {
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        input[type="text"],
-        input[type="submit"] {
-            width: 100%;
-            padding: 1rem;
-            margin-top: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 1rem;
-        }
-
-        /* Media Query for smaller screens */
-        @media (max-width: 600px) {
-            .modal-content {
-                padding: 1rem;
-                /* Reduce padding on smaller screens */
-            }
-
-            .captcha {
-                font-size: 1.2rem;
-                /* Adjust font size */
-                padding: 0.8rem;
-            }
-
-            .captcha-refresh {
-                font-size: 0.9rem;
-                /* Adjust font size */
-            }
-
-            input[type="text"],
-            input[type="submit"] {
-                padding: 0.8rem;
-                /* Adjust padding */
-                font-size: 0.9rem;
-                /* Adjust font size */
-            }
-        }
-    </style>
 
 </head>
 
@@ -172,7 +70,7 @@
                     <!-- Top Left -->
                     <div class="ft1-top-left pull-left">
                         <ul class="top-list">
-                            <li><span class="icon flaticon-location"></span>California, USA</li>
+                            <li><span class="icon flaticon-location"></span>London, UK</li>
                             <li><span class="icon flaticon-email"></span><a
                                     href="mailto:>Contact@marblecargo.online">Contact@marblecargo.online</a></li>
                         </ul>
@@ -299,25 +197,8 @@
     <!-- End Main Header -->
 
     {{ $slot }}
-    <div id="home-page-content">
-        <h1>Welcome to the Home Page</h1>
-        <p>Enjoy browsing our content.</p>
-    </div>
 
-    <!-- CAPTCHA Modal -->
-    <div id="captchaModal" class="modal">
-        <div class="modal-content">
-            <form id="captchaForm" onsubmit="return validateCaptcha()">
-                <div id="captcha" class="captcha"></div>
-                <div class="captcha-refresh" onclick="generateCaptcha()">Refresh CAPTCHA</div>
-                <div class="form-group">
-                    <label for="captchaInput">Enter CAPTCHA:</label>
-                    <input type="text" id="captchaInput" required>
-                </div>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
+
     <!-- Footer Style Two -->
     <footer class="ft1-main-footer" style="background-image:url(assets/images/background/pattern-5.png)">
         <div class="auto-container">
@@ -401,41 +282,16 @@
 
         </div>
     </footer>
-    <script>
-        // Function to generate a random CAPTCHA
-        function generateCaptcha() {
-            const captchaElement = document.getElementById('captcha');
-            const charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            const lengthOtp = 6;
-            let captcha = [];
-            for (let i = 0; i < lengthOtp; i++) {
-                let index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
-                if (captcha.indexOf(charsArray[index]) === -1) {
-                    captcha.push(charsArray[index]);
-                } else i--;
-            }
-            const captchaString = captcha.join('');
-            captchaElement.innerText = captchaString;
-        }
 
-        // Validate the CAPTCHA input
-        function validateCaptcha() {
-            const captchaValue = document.getElementById('captcha').innerText;
-            const userCaptchaInput = document.getElementById('captchaInput').value;
 
-            if (captchaValue === userCaptchaInput) {
-                alert("CAPTCHA validated successfully!");
-                document.getElementById('captchaModal').style.display = 'none';
-                return false; // Prevent form submission for demonstration purposes
-            } else {
-                alert("CAPTCHA validation failed. Please try again.");
-                return false; // Prevent form submission
-            }
-        }
 
-        // Generate a CAPTCHA when the page loads
-        window.onload = generateCaptcha;
-    </script>
+
+
+
+
+
+
+
     <script>
         function myFunction() {
             // Get the text field
