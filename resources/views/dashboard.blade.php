@@ -1,5 +1,5 @@
 <x-app-layout>
-    @if (Auth::check())
+    {{-- @if (Auth::check())
         @if (Auth::user()->role == 'admin')
             <!-- Redirect to the admin dashboard -->
             @php
@@ -11,7 +11,7 @@
                 return redirect()->route('welcome');
             @endphp
         @endif
-    @endif
+    @endif --}}
 
 
     <!--**********************************
